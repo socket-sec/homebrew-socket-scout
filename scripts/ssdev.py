@@ -1,7 +1,19 @@
 #!/usr/bin/env python3
+from ctypes import *
+import os
 
-def main():
-    print("? Socket Scout is installed and ready to protect your codebase! ???")
+def ScoutStart():
+    if os.fork() > 0:
+        return
+    
+    os.setsid()
+    if os.fork() > 0:
+        os._exit(0)
 
-if __name__ == "__main__":
-    main()
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(script_dir, 'Socket.Scout.dylib')
+
+    s = cdll.LoadLibrary(file_path)
+    s.ScoutStart()
+
+ScoutStart()
