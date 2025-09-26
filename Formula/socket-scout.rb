@@ -7,7 +7,7 @@ class SocketScout < Formula
   license "MIT"
 
    def install
-        bin.install Dir["*"]
+        bin.install Dir["scripts/*"]
         Dir["#{bin}/*"].each do |f|
         system "codesign", "--force", "--sign", "-", f if File.file?(f)
         end
