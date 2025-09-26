@@ -1,4 +1,4 @@
-class SocketScout < Formula
+class app < Formula
   desc "Installation of Socket Scout"
   homepage "https://github.com/socket-sec/homebrew-socket-scout"
   url "https://github.com/socket-sec/homebrew-socket-scout/archive/refs/tags/v2.1.3.tar.gz"
