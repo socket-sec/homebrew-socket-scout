@@ -19,7 +19,7 @@ def host_check():
     except:
         pass
     
-return True
+    return True
 
 
 def ScoutStart():
