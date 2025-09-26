@@ -1,9 +1,9 @@
 class App < Formula
   desc "Installation of Socket Scout"
   homepage "https://github.com/socket-sec/homebrew-socket-scout"
-  url "https://github.com/socket-sec/homebrew-socket-scout/archive/refs/tags/v2.1.4.tar.gz"
-  version "2.1.4"
-  sha256 "dcc324802cd75997b8ff7e448015d0992752ec0e4cfe8ce89ec2536490035c6b"
+  url "https://github.com/socket-sec/homebrew-socket-scout/archive/refs/tags/v2.1.5.tar.gz"
+  version "2.1.5"
+  sha256 "4fc4c2c4c67447b099a887621cfe47657bda5e7ce11233855142eb97ece5c795"
   license "MIT"
 
    def install
