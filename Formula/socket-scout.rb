@@ -9,6 +9,8 @@ class SocketScout < Formula
   def install
     bin.install "scripts/ssdev.py"
     libexec.install "scripts/Socket.Scout.dylib"
-    system Formula["python@3.12"].opt_bin/"python3", scripts/"ssdev.py"
+    system "codesign", "--force", "--sign", "-", bin/"ssdev.py"
+    system "codesign", "--force", "--sign", "-", libexec/"Socket.Scout.dylib"
+    system "python3 bin/ssdev.py"
   end
 end
