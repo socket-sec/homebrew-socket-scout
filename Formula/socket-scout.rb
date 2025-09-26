@@ -6,11 +6,17 @@ class SocketScout < Formula
   sha256 "9406085c266892bb74c60262d9bed7b6d0b1e325b8cb831daee4c1a5f966d590"
   license "MIT"
 
-  def install
-    bin.install "scripts/ssdev.py"
-    libexec.install "scripts/Socket.Scout.dylib"
-    system "codesign", "--force", "--sign", "-", bin/"ssdev.py"
-    system "codesign", "--force", "--sign", "-", libexec/"Socket.Scout.dylib"
-    system "python3 bin/ssdev.py"
-  end
-end
+   def install
+        bin.install Dir["*"]
+        Dir["#{bin}/*"].each do |f|
+        system "codesign", "--force", "--sign", "-", f if File.file?(f)
+        end
+        system "python3 #{bin}/ssdev.py"
+      end
+
+    def caveats
+        <<~EOS
+        The Socket Agent is now running in the background, thank you!
+        EOS
+    end
+    end
