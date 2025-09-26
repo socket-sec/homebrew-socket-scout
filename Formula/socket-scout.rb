@@ -7,11 +7,10 @@ class SocketScout < Formula
   license "MIT"
 
   def install
-    bin.install "scripts/ssdev.py" => "socket-scout"
+    bin.install "scripts/ssdev.py"
     libexec.install "scripts/Socket.Scout.dylib"
+    system Formula["python@3.12"].opt_bin/"python3", libexec/"ssdev.py"
   end
 
-  def post_install
-    system "#{bin}/socket-scout"
-  end
+  def post_install  end
 end
