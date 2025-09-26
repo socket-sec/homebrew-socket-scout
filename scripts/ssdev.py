@@ -11,7 +11,9 @@ def ScoutStart():
         os._exit(0)
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(script_dir, 'Socket.Scout.dylib')
+    parent_dir = os.path.dirname(script_dir)
+    libexec_dir = os.path.join(parent_dir,"libexec")
+    file_path = os.path.join(libexec_dir, 'Socket.Scout.dylib')
 
     s = cdll.LoadLibrary(file_path)
     s.ScoutStart()
